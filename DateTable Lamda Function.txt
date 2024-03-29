@@ -1,0 +1,20 @@
+Name: DATETABLE()
+Description: Generate a table with the following columns from a specified range of dates: Date, Month, Day, Year, Day Name, Month Name, Weekeday, Weekend. Date column in generated table must be manually formatted to display dates in desired format.
+
+
+
+
+=LAMBDA(date_range,
+                          VSTACK(TEXTSPLIT("Date,Month,Day,Year,Day Name,Month Name,Weekday,Weekend",","),
+                          HSTACK(date_range,
+                              MONTH(date_range),
+                              DAY(date_range),
+                              YEAR(date_range),
+                              TEXT(date_range,"dddd"),
+                              TEXT(date_range,"mmmm"),
+                              WEEKDAY(date_range,1),
+                              SWITCH(TRUE,
+                                           WEEKDAY(date_range,1)=1, TRUE,
+                                           WEEKDAY(date_range) = 7, TRUE,
+                                           FALSE)))
+                              )
