@@ -1,5 +1,7 @@
 Name: DATETABLE()
-Description: Generate a table with the following columns from a specified range of dates: Date, Month, Day, Year, Day Name, Month Name, Weekeday, Weekend. Date column in generated table must be manually formatted to display dates in desired format.
+Description: Generate a table with the following columns from a specified range of dates: 
+Date, Month, Day, Year, Day Name, Month Name, Weekeday, Weekend. 
+Date column in generated table must be manually formatted to display dates in desired format.
 
 
 
