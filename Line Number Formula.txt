@@ -1,0 +1,30 @@
+==============================================================================================
+=LET(
+      data_range,
+      tblCodeFormattedWithLineNumbers[[#Headers],[Code]]:[@Code],
+      r,
+      LEFT(
+             (COUNTIF(data_range, "<>") - 1
+               - COUNTIF(data_range,"*'*")
+               - COUNTIF(data_range,"  Case*")
+               - COUNTIF(data_range," * ")
+               - COUNTIF(data_range, REPT(" ",5) & "*")
+
+             )
+             * 10 & REPT(" ",5), 5
+          ),
+         t,
+         TRIM([@Code]),
+         tp,
+         TRIM(OFFSET([@Code],-1,0)),
+         IF(
+             OR(t ="", LEFT(t,1)="'",LEFT(t,4)="Case",RIGHT(tp,1)="_"),
+             REPT(" ",5),
+             r
+            )
+     )
+
+
+
+
+
